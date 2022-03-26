@@ -22,14 +22,14 @@ class Store {
 
   addHistory(keyword = "") {
     keyword = keyword.trim();
-    if (!keyword) return;
+    if (!keyword) {
+      return;
+    }
 
     const hasHistory = this.storage.historyData.some(
       (history) => history.keyword === keyword
     );
-    if (hasHistory) {
-      this.removeHistory(keyword);
-    }
+    if (hasHistory) this.removeHistory(keyword);
 
     const id = createNextId(this.storage.historyData);
     const date = new Date();

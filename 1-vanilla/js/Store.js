@@ -1,5 +1,4 @@
 import { TabType } from "./views/TabView.js";
-import { createNextId } from "./helpers.js";
 
 const tag = "[Store]";
 
@@ -53,9 +52,8 @@ export default class Store {
     );
     if (hasHistory) this.removeHistory(keyword);
 
-    const id = createNextId(this.storage.historyData);
     const date = new Date();
-    this.storage.historyData.push({ id, keyword, date });
+    this.storage.historyData.push({ keyword, date });
     this.storage.historyData = this.storage.historyData.sort(this._sortHistory);
   }
 }
